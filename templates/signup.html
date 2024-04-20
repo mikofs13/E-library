@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Londrina+Outline&family=Open+Sans:wght@500&family=Raleway&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <title>Sign Up</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <section>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div>
+                <p class="titles">username:</p> {{form.username}}
+                <p class="titles">email:</p>  {{form.email}}
+                <p class="titles">password:</p> {{form.password1}}
+                <p class="titles">confirm password:</p>{{form.password2}}
+            </div>
+            <input type="submit" class = 'submit-input-btn'  value="Register">
+            <a href="{% url 'login' %}" class="signupbtndiv">Already Signed Up?, Login</a>
+        </form>
+    </section>
+</body>
+</html>
